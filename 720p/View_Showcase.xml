@@ -514,7 +514,8 @@
 						<width>750</width>
 						<label>$VAR[global_Title]</label>
 						<include>detail_Title</include>
-						<visible>!Skin.HasSetting(showcaseInfo)</visible>	
+						<visible>!Skin.HasSetting(showcaseInfo)</visible>
+						<visible>Control.IsVisible(527)</visible> 
 					</control>	
 		<!--Wraplist-->
 		<control type="wraplist" id="527">	
