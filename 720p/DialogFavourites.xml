@@ -3,6 +3,7 @@
 	<defaultcontrol always="true">450</defaultcontrol>
 	<include>transition_Background</include>      
 	<include>transition_Dialog</include>
+	<include>global_background</include>
 	<coordinates>
 		<system>1</system>
 		<left>0</left>
@@ -22,8 +23,8 @@
 				</control>			
 		<control type="label" id="1">
 			<width>592</width>
-			<top>430</top>
-			<left>1100</left>
+			<top>435</top>
+			<left>1000</left>
 			<label>$LOCALIZE[1036]</label>
 			<textcolor>ffffffff</textcolor>
 			<include>windowTitle</include>			

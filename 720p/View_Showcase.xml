@@ -16,6 +16,7 @@
 				     <aspectratio>scale</aspectratio>
 					 <colordiffuse>base_1</colordiffuse>	
 					<visible>Control.IsVisible(527)</visible>
+					<visible>Skin.HasSetting(showcaseInfo)</visible>	
 			    </control>
 				<control type="image">
 				<include>transition_Info</include>
@@ -28,6 +29,7 @@
                      <texture background="true" colordiffuse="160FFFFFF">overlays/panel.png</texture>			   				   
 			         <aspectratio>stretch</aspectratio>
 			         <visible>Control.IsVisible(527)</visible>
+					 <visible>Skin.HasSetting(showcaseInfo)</visible>	
 			    </control>				
 			<control type="group">
 			<include>transition_Info</include>
@@ -37,7 +39,7 @@
 				<left>160</left>
 				<top>235</top>
 				<animation effect="slide" start="0" end="57" time="0" condition="Control.IsVisible(527)">Conditional</animation>
-				<control type="group">				
+					<control type="group">				
 					<control type="label">
 					<top>-50</top>
 					<left>-100</left>
@@ -61,7 +63,8 @@
 							<include>detail_Sub</include>
 							<visible>[Container.Content(addons) | Container.Content(programs)]</visible>
 						</control>
-					</control>					
+					</control>
+				<visible>Skin.HasSetting(showcaseInfo)</visible>	
 				</control>
 				<control type="grouplist">
 				<visible>Control.IsVisible(527)</visible>
@@ -80,12 +83,14 @@
 						<aspectratio align="center">keep</aspectratio>
 						<visible>!Container.Content(files)</visible>
 					</control>
+					<visible>Skin.HasSetting(showcaseInfo)</visible>	
 				</control>
 				<control type="image">
 				<top>-48</top>
 					<left>-130</left>
 					<texture colordiffuse="Color3">$VAR[status_List]</texture>
 					<include>status_List</include>
+					<visible>Skin.HasSetting(showcaseInfo)</visible>	
 				</control>
 			</control>	
 			<control type="grouplist" id="100">
@@ -124,7 +129,8 @@
 					<aspectratio align="center">keep</aspectratio>
 					<texture colordiffuse="Color11">$INFO[Listitem.AudioChannels,flags/audio/,.png]</texture>
 					<visible>!IsEmpty(Listitem.AudioChannels)</visible>
-			</control>			
+			</control>
+			<visible>Skin.HasSetting(showcaseInfo)</visible>	
 			</control>
 			<control type="textbox">
 			<include>transition_Info</include>
@@ -138,6 +144,7 @@
 					<align>justify</align>
 					<label>$VAR[global_Plot]</label>
 					<include>detail_Text</include>
+					<visible>Skin.HasSetting(showcaseInfo)</visible>	
 					</control>
 			<control type="image">
 					 <left>600</left>
@@ -168,8 +175,6 @@
 			<aspectratio>stretch</aspectratio>
 			<visible>Control.IsVisible(527)</visible> 
 			</control>
-		
-		
 		</control>
 		<!--Showcase-->
 		<control type="group">
@@ -500,7 +505,17 @@
 			<aspectratio>stretch</aspectratio>
 			<visible>Control.IsVisible(527)</visible> 
 			</control>			
-					
+				<control type="label">
+				<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+					<top>670</top>
+					<left>100</left>
+						<width>750</width>
+						<label>$VAR[global_Title]</label>
+						<include>detail_Title</include>
+						<visible>!Skin.HasSetting(showcaseInfo)</visible>	
+					</control>	
 		<!--Wraplist-->
 		<control type="wraplist" id="527">	
 			<posx>-150</posx>
@@ -525,7 +540,7 @@
 			<itemlayout width="325" height="260">
 			</itemlayout>
 			<focusedlayout width="325" height="260">
-			</focusedlayout>
+			</focusedlayout>			
 		</control>
 	</include>	
 </includes>

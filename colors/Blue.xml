@@ -4,7 +4,7 @@
 	<color name="base_1">ff114076</color><!--main background color-->
 	<color name="base_2">ff004160</color><!--primary overlay / menu color-->
 	<color name="base_3">ff0072a9</color><!--secondary overlay / menu color (home menu)-->
-	<color name="base_4">aa004160</color><!--vignette2-->
+	<color name="base_4">bf004160</color><!--vignette2-->
 	<color name="base_5">ff000000</color><!--main color menu horizontal-->
 	<color name="base_6">ffffffff</color><!--main color menu vertical-->
 	<color name="base_7">ee004160</color><!--main color menu vertical-->

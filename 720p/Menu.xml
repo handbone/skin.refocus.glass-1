@@ -511,6 +511,13 @@
 				<include>menu_Button</include>
 				<visible>Control.IsVisible(592)</visible>		
 		</control>
+		<!--!Showcase-->
+		<control type="button" id="334">
+			<label>Setting</label>
+			<onclick>ActivateWindow(713)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(527)</visible>		
+		</control>
 	</include>
 
 <!--VIDEO MENU-->
