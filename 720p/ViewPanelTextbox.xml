@@ -76,7 +76,7 @@
 							<label>$LOCALIZE[19114] $INFO[ListItem.Property(Addon.Version),, • ]$LOCALIZE[31144] $INFO[ListItem.Property(Addon.Creator)]</label>
 							<include>detail_Sub</include>
 							<visible>[Container.Content(addons) | Container.Content(programs)]</visible>
-						</control>
+						</control>							
 					</control>
 			</control>		
 		</control>
@@ -145,17 +145,26 @@
 					<visible>!Skin.HasSetting(PanelTextbox_Logo.movies.enable)</visible>
 				</control>				
 				<control type="label">
-					<top>205</top>
-					<left>10</left>
+					<top>190</top>
+					<left>0</left>
 				    <width>330</width>
 				    <height>20</height>
 					<align>left</align>						 
 					<label>$VAR[global_Title]</label>
 					<textcolor>Color13</textcolor>
 					<include>detail_Title</include>
-					</control>	
+					</control>
+					<control type="label">	
+						<left>0</left>
+						<top>215</top>
+						<width>330</width>
+						<label>$VAR[global_info_sup]</label>
+						<width>900</width>
+						<include>detail_Sub</include>						
+						<visible>Control.IsVisible(69) + Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+					</control>
 				<control type="textbox">
-				<top>230</top>				
+				<top>240</top>				
 				<left></left>
 				<width>350</width>
 				<align>justify</align>

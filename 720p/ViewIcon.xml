@@ -1256,7 +1256,7 @@
 				<effect type="slide" start="-25,0" end="25,0" time="780" delay="0" tween="sine" easing="out"/>
 				</animation>
 				<visible>Skin.HasSetting(MoviesSets2DiscartSupp.movies.enable)</visible>
-				<visible>Control.IsVisible(542)</visible>
+				<visible>Control.IsVisible(542) + !Container.Content(sets)</visible>
 		</control> 
 		<control type="image">
 			      <left>-65</left>

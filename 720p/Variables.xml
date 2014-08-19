@@ -249,6 +249,20 @@
 		<value condition="!IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration]</value>
 		<value condition="!IsEmpty(ListItem.Studio)">$INFO[ListItem.Studio]</value>
 	</variable>
+	
+	<variable name="global_info_sup">
+	<value condition="[Container.Content(movies) | Container.Content(musicvideos)] + ![SubString(ListItem.Duration,min) | SubString(ListItem.Path,videodb://movies/sets,left)]">$LOCALIZE[180]: $INFO[ListItem.Duration] $LOCALIZE[31961] - $LOCALIZE[20339]:  $INFO[ListItem.Director]</value>
+	<value condition="[Container.Content(movies) | Container.Content(musicvideos)] + SubString(ListItem.Duration,min) + !SubString(ListItem.Path,videodb://movies/sets,left)">$LOCALIZE[180]: $INFO[ListItem.Duration] - $LOCALIZE[20388]:  $INFO[ListItem.Studio]</value>
+	<value condition="SubString(ListItem.Path,videodb://movies/sets,left)">$LOCALIZE[20457]</value>
+	<value condition="Container.Content(tvshows) + !IsEmpty(ListItem.Episode)">$LOCALIZE[33054]: $INFO[ListItem.Property(TotalSeasons)] - $LOCALIZE[20360]: $INFO[ListItem.Episode]</value>
+	<value condition="Container.Content(seasons) + !IsEmpty(ListItem.Episode)">$INFO[ListItem.TVShowTitle] - $LOCALIZE[20360]: $INFO[ListItem.Episode]  - $LOCALIZE[16101]: $INFO[ListItem.Property(UnWatchedEpisodes)]</value>
+	<value condition="Container.Content(episodes) + !SubString(ListItem.Duration,min)">$LOCALIZE[180]:  $INFO[ListItem.Duration] $LOCALIZE[31961] - $INFO[ListItem.TVShowTitle]</value>
+	<value condition="Container.Content(episodes) + SubString(ListItem.Duration,min)">$LOCALIZE[180]:  $INFO[ListItem.Duration] - $INFO[ListItem.TVShowTitle]</value>
+	<value condition="Container.Content(albums)">$LOCALIZE[21899]: $INFO[ListItem.Property(Album_Label)]</value>
+	<value condition="Container.Content(artists)">$LOCALIZE[21898]: $INFO[ListItem.Property(Artist_YearsActive)]</value><!-- YearsActive/Artists -->
+	<value condition="Container.Content(songs) + !SubString(ListItem.Duration,min)">$LOCALIZE[180]:  $INFO[ListItem.Duration] $LOCALIZE[31961]</value>
+	<value condition="Container.Content(songs) + SubString(ListItem.Duration,min)">$LOCALIZE[180]:  $INFO[ListItem.Duration]</value>
+	</variable>
 
 	<variable name="global_Tagline">
 		<value condition="!IsEmpty(ListItem.Property(Tagline))">$INFO[ListItem.Property(Tagline)]</value>

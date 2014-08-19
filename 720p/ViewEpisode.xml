@@ -44,17 +44,8 @@
 					<include>container_Single</include>
 				</control>
 			</itemlayout>
-			<focusedlayout condition="IsEmpty(Container.FolderPath)" width="950" height="240">
-				<control type="group">
-					<visible>![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
-					
-					<control type="label">
-						<left>15</left>
-						<width>350</width>
-						<label>$INFO[ListItem.Label]</label>
-						<include>container_Single-focus</include>
-					</control>
-				</control>
+			<focusedlayout condition="IsEmpty(Container.FolderPath)" width="950" height="270">
+				
 				<control type="label">
 					<left>15</left>
 					<width>350</width>
@@ -96,7 +87,7 @@
 		<left>880</left>
 		<top>200</top>
 		<control type="image">
-				     <top>65</top>
+				     <top>70</top>
 				     <left>-900</left>
 				     <width>1320</width>
 				     <height>223</height>				
@@ -148,12 +139,12 @@
 			<control type="image">				  				   
 				   <width>300</width>
 				   <height>415</height>
-				   <texture background="true">$VAR[thumb_Portrait]</texture>
-				   <aspectratio align="center" aligny="top">stretch</aspectratio>
+				    <texture background="true">$VAR[thumb_Portrait]</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
 				   <fadetime>fadetime_Thumb</fadetime>
 				   <visible>Control.IsVisible(63)</visible>
-			</control>	
-			<control type="image">
+			</control>		
+ 			<control type="image">
 					<left>270</left>
 					<top>15</top>
 					<width>30</width>
@@ -163,7 +154,7 @@
 		<colordiffuse>FFFFFFFF</colordiffuse>	
 		</control>
 			
-			<control type="group">				  			
+		<control type="group">				  			
 			<control type="group">
 					<left>275.5</left>
 					<top>382</top>
@@ -216,7 +207,7 @@
 				</control>
 					<visible>Skin.HasSetting(EpisodePoster.case)</visible>							
 			</control>
-			</control>
+		</control>
     </control>		
             <!--info et flag -->
 				<control type="label">
@@ -237,6 +228,15 @@
 						<visible>SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
 						<visible>Control.IsVisible(63) + Container.Content(sets)</visible>
 					</control>
+					<control type="label">					
+						<left>50</left>
+					<top>650</top>
+						<label>$VAR[global_info_sup]</label>
+						<width>900</width>
+						<include>detail_Sub</include>						
+						<visible>Control.IsVisible(63) + Container.Content(tvshows) | Container.Content(seasons | Container.Content(episodes))</visible>
+					</control>					
+					
 			<control type="label">
 					<left>500</left>
 					<top>680</top>
@@ -398,7 +398,7 @@
 			<include>transition_Content</include>
 			<include>transition_Info</include>		
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets)</visible>			
-		<itemlayout condition="IsEmpty(Container.FolderPath)" width="950" height="35">
+		<itemlayout condition="IsEmpty(Container.FolderPath)" width="950" height="30">
 				<control type="label">
 					<left>15</left>
 					<width>350</width>
@@ -407,7 +407,7 @@
 					<include>container_Single</include>
 				</control>
 			</itemlayout>
-			<focusedlayout condition="IsEmpty(Container.FolderPath)" width="950" height="265">
+			<focusedlayout condition="IsEmpty(Container.FolderPath)" width="950" height="275">
 				<control type="group">
 					<visible>![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
 					
