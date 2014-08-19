@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+<!--POSTER--> 
+	<include name="viewIconWallPortrait-ContainerCommons"></include>
+    <include name="view_IconWallPortrait"> 
+<control type="image">
+                <top>78</top>                
+                <width>screenWidth</width>
+                <height>720</height>
+               <texture>frames/strip_wall.png</texture>                                  
+               <aspectratio>stretch</aspectratio>
+               <visible>Control.IsVisible(592)</visible>               
+            </control>
+        <control type="panel" id="592">	
+        <viewtype label="Wall">icon</viewtype>        
+            
+            <top>356</top>
+            <width>1280</width>
+            <height>428</height>
+            <onup>6000</onup>
+            <ondown>70</ondown>
+            <onleft>592</onleft>
+            <onright>592</onright>
+            <pagecontrol>70</pagecontrol>
+            <preloaditems>4</preloaditems>
+            <focusposition>1</focusposition>
+            <orientation>horizontal</orientation>
+            <include>global_ListScroll</include>
+            <include>transition_Content</include>
+            <include>toggle_Menu</include>
+            <include>transition_Info</include>
+            <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(actors)</visible>
+            <scrolltime>200</scrolltime>
+        
+            <animation type="WindowOpen">
+                <effect type="fade" start="0" end="100" time="500"/>
+                <effect type="zoom" start="200" end="100" center="auto" time="500"/>
+            </animation>
+            <animation type="WindowClose">
+                <effect type="fade" start="100" end="0" time="500"/>
+                <effect type="zoom" start="100" end="200" center="auto" time="500"/>
+            </animation>
+            <itemlayout width="80" height="120">
+            <include>viewIconWallPortrait-ContainerCommons</include>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>80</width>
+                    <height>120</height>
+                    <texture>views\frame-Wall/white_diffuse_wall.png</texture>
+                    <colordiffuse>aaFFFFFF</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>80</width>
+                    <height>120</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture fallback="DefaultVideo.png" background="true">$INFO[ListItem.Icon]</texture>
+                    <bordersize>1</bordersize>
+                    <colordiffuse>aa003366</colordiffuse>
+                    <visible>stringcompare(ListItem.Label,..)</visible>
+                </control>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>80</width>
+                    <height>120</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture fallback="DefaultVideo.png" background="true">$VAR[IconPoster]</texture>
+                    <bordersize>1</bordersize>
+                    <colordiffuse>39FFFFFF</colordiffuse>
+                    <visible>!stringcompare(ListItem.Label,..)</visible>
+                </control>
+            </itemlayout>
+            <focusedlayout width="80" height="120">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>80</width>
+                    <height>120</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture fallback="DefaultVideo.png" background="true">$INFO[ListItem.Icon]</texture>
+                    <bordertexture>black.png</bordertexture>
+                    <bordersize>2</bordersize>
+                    <animation effect="zoom" start="100" end="140" center="auto">Focus</animation>
+                    <animation effect="slide" start="0,0" end="11,0" time="0" condition="Container.Column(0)">Conditional</animation>
+                    <animation effect="slide" start="0,0" end="-11,0" time="0" condition="Container.Column(15)">Conditional</animation>
+                    <animation effect="slide" start="0,0" end="0,17" time="0" condition="Container.Row(0)">Conditional</animation>
+                    <animation effect="slide" start="0,0" end="0,-17" time="0" condition="Container.Row(5)">Conditional</animation>
+                    <visible>stringcompare(ListItem.Label,..)</visible>
+                </control>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>80</width>
+                    <height>120</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture fallback="DefaultVideo.png" background="true">$VAR[IconPoster]</texture>
+                    <bordertexture>black.png</bordertexture>
+                    <bordersize>2</bordersize>
+                    <animation effect="zoom" start="100" end="140" center="auto">Focus</animation>
+                    <animation effect="slide" start="0,0" end="11,0" time="0" condition="Container.Column(0)">Conditional</animation>
+                    <animation effect="slide" start="0,0" end="-11,0" time="0" condition="Container.Column(15)">Conditional</animation>
+                    <animation effect="slide" start="0,0" end="0,17" time="0" condition="Container.Row(0)">Conditional</animation>
+                    <animation effect="slide" start="0,0" end="0,-17" time="0" condition="Container.Row(5)">Conditional</animation>
+                    <visible>!stringcompare(ListItem.Label,..)</visible>
+                </control>
+            <include>viewIconWallPortrait-ContainerCommons</include>
+            </focusedlayout>
+		</control> 
+</include>	
+<include name="detail_ThumbnailsWall">
+		<control type="group">
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<!--large grid-->
+			<control type="group">
+				<visible>Control.IsVisible(592)</visible>
+				<!--flags-->
+				<control type="image">
+					<right>1150</right>
+					<top>230</top>
+					<width>80</width>
+					<include>detail_StarRating</include>
+					<aspectratio align="right" aligny="top">keep</aspectratio>
+					<visible>IntegerGreaterThan(ListItem.Rating,0)</visible>
+					<visible>Control.IsVisible(592)</visible>	
+				</control>
+				<control type="image">
+				    <top>280</top>
+				    <left>50</left>
+					<bottom>40</bottom>
+					<width>80</width>
+					<height>49</height>
+					<aspectratio align="left">keep</aspectratio>
+					<texture>$VAR[flag_Studio]</texture>
+				</control>
+				<control type="label">				
+				        <top>175</top>
+						<left>50</left>
+						<label>$VAR[global_Title]</label>
+						<width>600</width>
+						<include>detail_Title</include>
+						<animation effect="zoom" start="140" end="130" time="0" condition="true">Conditional</animation>
+						<visible>Control.IsVisible(592)</visible>						
+					</control>					
+					<control type="label">
+					    <top>220</top>
+						<left>50</left>
+						<label>$VAR[global_Info]</label>
+						<width>450</width>
+						<include>detail_Sub</include>
+						<visible>!SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
+						<visible>Control.IsVisible(592)</visible>
+					</control>		
+					<control type="label">					
+						<top>150</top>
+						<left>50</left>
+						<label>$VAR[global_Info.Addon]</label>
+						<width>450</width>
+						<include>detail_Sub</include>
+						<visible>SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
+						<visible>Control.IsVisible(592)</visible>
+					</control>
+					<control type="label">					
+						<top>150</top>
+						<left>50</left>
+						<label>$VAR[global_Plot_actors]</label>
+						<width>950</width>
+						<include>detail_Sub</include>
+						</control>
+				<control type="textbox">
+					<top>260</top>
+					<left>150</left>
+					<width>530</width>
+					<align>justify</align>
+					<height max="80">auto</height>
+					<label>$VAR[global_Plot_actors]</label>
+					<include>detail_Text</include>					
+				</control>
+				<control type="textbox">
+					<top>260</top>
+					<left>150</left>
+					<width>530</width>
+					<align>justify</align>
+					<height max="80">auto</height>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>					
+				</control>
+				<control type="image">
+					<left>960</left>
+					<top>90</top>
+					<width>180</width>
+					<height>180</height>
+					<include>art_Discart</include>
+					<visible>Skin.HasSetting(WallDiscart.movies.enable)</visible>
+					<visible>Control.IsVisible(592)</visible>
+					<animation type="WindowOpen">
+					<effect type="slide" start="0,0" end="-20,0" time="500" delay="600" tween="cubic" easing="out"/>
+	                <effect type="fade" start="0" end="100" time="600" delay="500"/>
+	                </animation>
+	                <animation type="Visible">
+	                <effect type="slide" start="0,0" end="-20,0" time="500" delay="500" tween="cubic" easing="out"/>
+	                <effect type="fade" start="0" end="100" time="500" delay="500"/>
+	                </animation>
+	                <animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+	                <animation type="Hidden">
+	                <effect type="slide" start="0,0" end="100,0" time="300" tween="cubic" easing="out"/>
+	                <effect type="fade" start="20" end="0" time="200"/>
+	                </animation>
+				</control>
+				<control type="image">
+				<top>85</top>
+					<left>1070</left>
+				<width>170</width>
+				<height>250</height>
+				<texture background="true">$VAR[thumb_Portrait]</texture>
+				<aspectratio>scale</aspectratio>
+				<visible>Control.IsVisible(592)</visible>
+			</control>
+					<control type="image">
+					<left>1065</left>
+					<top>83</top>
+					<width>179</width>
+					<height>252</height>
+		           <texture>frames/Glass.png</texture>
+		           <visible>Skin.HasSetting(WallPoster.Glass)</visible>
+				   <aspectratio align="center" aligny="top">stretch</aspectratio>
+				   <visible>Control.IsVisible(592)</visible>
+		           </control>
+			<control type="group">
+			 <!-- MikeBZH44 : ajout du boitier selon la resolution du film -->
+				<control type="image">
+				<left>1050</left>
+					<top>65</top>
+					<width>210</width>
+					<height>280</height>
+					<texture background="true" fallback="thumbs/boxes/p.png">thumbs/boxes/$INFO[ListItem.VideoResolution]p.png</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>					
+				    <!--MikeBZH44--> 
+				</control>
+				<control type="image">
+				<left>1050</left>
+					<top>65</top>
+					<width>210</width>
+					<height>280</height>
+				<texture>$VAR[UnFocusHDIndicator]</texture>
+						<visible>!IsEmpty(ListItem.VideoResolution)</visible>
+						<aspectratio align="center" aligny="top">stretch</aspectratio>
+						</control>
+						<visible>Skin.HasSetting(WallPoster.case)</visible>					  							
+					</control>
+								
+				<control type="image">
+					<left>750</left>
+					<top>230</top>
+					<width>170</width>
+					<height>70</height>
+					<include>art_ClearLogo</include>					
+				</control>
+				<control type="group">
+				<left>1122</left>
+				<top>155</top>
+				<control type="group">
+				<left>89</left>
+				<top>144</top>
+				<include>status_Info</include>			
+				<visible>Skin.HasSetting(overlay_statu.disable)</visible>
+			</control>
+				<control type="group">
+					<left>84</left>
+				<top>141</top>
+					<width>32</width>
+					<height>32</height>
+					<visible>Skin.HasSetting(watched.alternative)</visible>
+					<control type="image">
+						<info>ListItem.Overlay</info>
+					</control>
+				</control>
+					</control>			
+			</control>
+		</control>
+</include>
+
+
+<!-- view wall 2-->
+
+<include name="viewIconWall2Portrait-ContainerCommons">
+<visible>Control.IsVisible(62)</visible> 
+	</include>
+    <include name="view_IconWall2Portrait">
+
+	
+        <control type="panel" id="62">	
+        <viewtype label="Wall">icon</viewtype> 
+            <top>88</top>
+            <width>1280</width>
+            <height>600</height>
+            <onup>6000</onup>
+            <ondown>70</ondown>
+            <onleft>62</onleft>
+            <onright>62</onright>
+            <pagecontrol>70</pagecontrol>
+            <preloaditems>4</preloaditems>
+            <focusposition>1</focusposition>
+            <orientation>horizontal</orientation>
+            <include>global_ListScroll</include>
+            <include>transition_Content</include>
+            <include>toggle_Menu</include>
+            <include>transition_Info</include>
+            <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(actors)</visible>
+            <scrolltime>200</scrolltime>        
+            <animation type="WindowOpen">
+                <effect type="fade" start="0" end="100" time="500"/>
+                <effect type="zoom" start="200" end="100" center="auto" time="500"/>
+            </animation>
+            <animation type="WindowClose">
+                <effect type="fade" start="100" end="0" time="500"/>
+                <effect type="zoom" start="100" end="200" center="auto" time="500"/>
+            </animation>
+            <itemlayout width="70" height="110">
+            <include>viewIconWall2Portrait-ContainerCommons</include> 
+			
+			<control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>70</width>
+                    <height>110</height>
+                    <texture>views\frame-Wall/white_diffuse_wall.png</texture>
+                    <colordiffuse>bbFFFFFF</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>70</width>
+                    <height>110</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture fallback="DefaultVideo.png" background="true">$INFO[ListItem.Icon]</texture>
+                    <bordersize>1</bordersize>
+                    <colordiffuse>aa003366</colordiffuse>
+                    <visible>stringcompare(ListItem.Label,..)</visible>
+                </control>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>70</width>
+                    <height>110</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture fallback="DefaultVideo.png" background="true">$VAR[IconPoster]</texture>
+                    <bordersize>1</bordersize>
+                    <colordiffuse>25FFFFFF</colordiffuse>
+                    <visible>!stringcompare(ListItem.Label,..)</visible>
+                </control>
+            </itemlayout>
+            <focusedlayout width="80" height="120">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>80</width>
+                    <height>120</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture fallback="DefaultVideo.png" background="true">$INFO[ListItem.Icon]</texture>
+                    <bordertexture>black.png</bordertexture>
+                    <bordersize>0</bordersize>
+                    <animation effect="zoom" start="100" end="140" center="auto">Focus</animation>
+                    <animation effect="slide" start="0,0" end="11,0" time="0" condition="Container.Column(0)">Conditional</animation>
+                    <animation effect="slide" start="0,0" end="-11,0" time="0" condition="Container.Column(15)">Conditional</animation>
+                    <animation effect="slide" start="0,0" end="0,17" time="0" condition="Container.Row(0)">Conditional</animation>
+                    <animation effect="slide" start="0,0" end="0,-17" time="0" condition="Container.Row(5)">Conditional</animation>
+                    <visible>stringcompare(ListItem.Label,..)</visible>
+                </control>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>70</width>
+                    <height>110</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture fallback="DefaultVideo.png" background="true">$VAR[IconPoster]</texture>
+                    <bordertexture>black.png</bordertexture>
+                    <bordersize>0</bordersize>
+                    <animation effect="zoom" start="100" end="140" center="auto">Focus</animation>
+                    <animation effect="slide" start="0,0" end="11,0" time="0" condition="Container.Column(0)">Conditional</animation>
+                    <animation effect="slide" start="0,0" end="-11,0" time="0" condition="Container.Column(15)">Conditional</animation>
+                    <animation effect="slide" start="0,0" end="0,17" time="0" condition="Container.Row(0)">Conditional</animation>
+                    <animation effect="slide" start="0,0" end="0,-17" time="0" condition="Container.Row(5)">Conditional</animation>
+                    <visible>!stringcompare(ListItem.Label,..)</visible>
+                </control>
+            <include>viewIconWallPortrait-ContainerCommons</include>
+            </focusedlayout>
+		</control> 
+</include>
+	
+<include name="detail_ThumbnailsWall2">
+		<control type="group">
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<!--large grid-->
+			<control type="group">
+				<visible>Control.IsVisible(62)</visible>				
+				<!--flags-->
+				<control type="group">
+				<top>470</top>
+				<control type="image">
+					<right>100</right>
+					<top>210</top>
+					<width>80</width>
+					<include>detail_StarRating</include>
+					<aspectratio align="right" aligny="top">keep</aspectratio>
+					<visible>IntegerGreaterThan(ListItem.Rating,0)</visible>
+					<visible>Control.IsVisible(62)</visible>	
+				</control>
+				<control type="image">
+				    <top>190</top>
+				    <left>17</left>
+					<bottom>40</bottom>
+					<width>80</width>
+					<height>49</height>
+					<aspectratio align="left">keep</aspectratio>
+					<texture>$VAR[flag_Studio]</texture>
+				</control>          				
+				<control type="label">				
+				        <top>190</top>
+						<left>110</left>
+						<label>$VAR[global_Title]</label>
+						<width>600</width>
+						<include>detail_Title</include>
+						<animation effect="zoom" start="140" end="130" time="0" condition="true">Conditional</animation>
+						<visible>Control.IsVisible(62)</visible>						
+					</control>					
+					<control type="label">
+					    <top>220</top>
+						<left>110</left>
+						<label>$VAR[global_Info]</label>
+						<width>500</width>
+						<include>detail_Sub</include>
+						<visible>!SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
+						<visible>Control.IsVisible(62)</visible>
+					</control>		
+					<control type="label">					
+						<top>220</top>
+						<left>110</left>
+						<label>$VAR[global_Info.Addon]</label>
+						<width>500</width>
+						<include>detail_Sub</include>
+						<visible>SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
+						<visible>Control.IsVisible(62)</visible>
+					</control>	
+				</control>	
+			</control>
+		</control>
+</include>
+</includes> 

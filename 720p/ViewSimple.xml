@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+<include name="detail_Simple">
+		<control type="group">
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<visible>Control.IsVisible(595)</visible>			
+				<control type="image">
+					<top>600</top>
+					<left>267</left>
+				    <width>600</width>
+				    <height>20</height>
+			        <texture border="5">frames/separateur_simple.png</texture>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<colordiffuse>accent_3</colordiffuse>			          
+			        </control>
+				    <animation effect="slide" start="0" end="57" time="0" condition="Control.IsVisible(595)">Conditional</animation>
+		<control type="group">
+					<control type="label">
+					<top>560</top>
+					<left>238</left>
+				    <width>630</width>
+				    <height>20</height>
+					<align>center</align>						 
+					<label>$VAR[global_Title]</label>
+					<include>detail_Title</include>
+					</control>
+			<control type="group">
+					<top>630</top>
+					<left>73</left>
+				    <width>630</width>
+				    <height>20</height>						 					 
+					<visible>!SubString(ListItem.Icon,default)</visible>
+				<control type="label">
+					<width>960</width>
+					<label>$VAR[global_Info]</label>
+					<include>detail_Sub</include>
+					<align>center</align>		
+					<visible>![Container.Content(addons) | Container.Content(programs)]</visible>
+				</control>
+				<control type="label">
+					<width>960</width>
+					<label>$LOCALIZE[19114] $INFO[ListItem.Property(Addon.Version),, • ]$LOCALIZE[31144] $INFO[ListItem.Property(Addon.Creator)]</label>
+					<include>detail_Sub</include>
+					<visible>[Container.Content(addons) | Container.Content(programs)]</visible>
+				</control>
+			</control>					
+		</control>
+		<control type="grouplist">
+				<top>660</top>
+				<left>495</left>
+				<width>600</width>
+				<height>40</height>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>
+			<control type="image">
+				<width>128</width>
+				<height>32</height> 
+				<texture>$VAR[global_Rating]</texture>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>!Container.Content(files)</visible>
+			</control>
+		</control>
+		</control>
+</include>
+<!--PORTRAIT-->
+	<include name="view_SimplePoster">	
+		<control type="fixedlist" id="595">		
+			<viewtype label="31112">wrap</viewtype>			
+			<left>8</left>
+			<top>175</top>
+			<width>1272</width>
+			<height>425</height>
+			<onup>6000</onup>
+			<ondown>71</ondown>
+			<onleft>595</onleft>
+			<onright>595</onright>
+			<focusposition>2</focusposition>
+			<pagecontrol>71</pagecontrol>
+			<orientation>horizontal</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
+			<itemlayout width="250" height="300">
+			<include>viewSimplePoster-ContainerCommons</include>
+			</itemlayout>
+			<focusedlayout width="250" height="300">	
+			<control type="image">
+                        <left>37</left>
+                        <top>130</top>
+                        <width>120</width>
+                        <height>120</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture background="true">$VAR[Icon_Discart]</texture>
+                        <animation effect="slide" delay="1600" end="0,-215" time="300" tween="quadratic">Focus</animation>
+                        <animation effect="slide" start="0,-215" end="0" time="150" tween="quadratic" easing="in">Unfocus</animation>
+                        <animation effect="zoom" start="70" end="200" center="auto" time="160" condition="Control.HasFocus(595)">Conditional</animation>
+                        <visible>Container.Content(movies) + Skin.HasSetting(SimpleDiscart.movies.enable)</visible>
+                        <bordersize>7</bordersize>
+                    </control>
+			<include>viewSimplePoster-ContainerCommons</include>			
+			<control type="image">
+					<left>185</left>
+					<top>13</top>
+					<width>32</width>
+            <height>32</height>
+			<texture background="true" diffuse="videoextras_overlay.png">$VAR[VideoextrasOverlay]</texture>
+			<visible>Control.IsVisible(595) + System.HasAddon(script.videoextras) + Window.IsVisible(Videos) + Container.Content(Movies) + !Skin.HasSetting(Enable.videoextrasOverlays)</visible>
+		<colordiffuse>FFFFFFFF</colordiffuse>	
+		</control>
+		
+		
+			</focusedlayout>
+			
+		</control>
+	</include>
+	<include name="viewSimplePoster-ContainerCommons">
+		<control type="group">
+			<include>focus_SlidePoster</include>
+			<control type="image">
+				<top>-8</top>
+				<left>-2</left>
+				<width>208</width>
+				<height>323</height>
+			<texture border="5">frames/frame-back-alt.png</texture>
+			<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="group">
+				<left>10</left>
+				<top>10</top>
+				<control type="image">
+					<width>184</width>
+					<height>280</height>
+					<texture background="true">thumbs/default_Portrait.png</texture>
+					<aspectratio align="center">stretch</aspectratio>
+				</control>				 
+				<control type="image">
+					<left>43.5</left>
+					<top>92</top>
+					<width>96</width>
+					<height>96</height>
+					<include>art_DefaultIcon</include>
+				</control>
+				<control type="image">
+					<width>183</width>
+					<height>280</height>
+					<texture background="true">$VAR[thumb_Portrait]</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+				</control>
+				<control type="group">
+					<left>157</left>
+					<top>254</top>
+					<include>status_Info</include>
+					<visible>Skin.HasSetting(overlay_statu.disable)</visible>
+			</control>
+				<control type="group">
+					<left>152</left>
+					<top>250</top>
+					<width>32</width>
+					<height>32</height>
+					<visible>Skin.HasSetting(watched.alternative)</visible>					
+					<control type="image">
+					<info>ListItem.Overlay</info>
+					</control>					
+				</control>
+					<control type="image">
+					<left>-5</left>
+					<top>-5</top>
+					<width>193</width>
+					<height>293</height>
+		           <texture>frames/Glass.png</texture>
+		           <visible>Skin.HasSetting(SimplePoster.Glass)</visible>
+				   <aspectratio align="center" aligny="top">stretch</aspectratio>
+		           </control>
+				   <!-- MikeBZH44 : ajout du boitier selon la resolution du film -->
+		    <control type="group">
+				<control type="image">
+				    <left>-24</left>
+					<top>-15</top>
+					<width>230</width>
+					<height>312</height>
+					<texture background="true" fallback="thumbs/boxes/p.png">thumbs/boxes/$INFO[ListItem.VideoResolution]p.png</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>					
+				    <!--MikeBZH44-->					 				  
+				</control>
+				<control type="image">
+				    <left>-24</left>
+					<top>-15</top>
+					<width>230</width>
+					<height>312</height>
+				    <texture>$VAR[UnFocusHDIndicator]</texture>
+					<visible>!IsEmpty(ListItem.VideoResolution)</visible>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+				</control>
+					<visible>Skin.HasSetting(SimplePoster.case)</visible>					  						
+				</control> 
+			</control>		
+		</control>
+	</include>
+</includes>

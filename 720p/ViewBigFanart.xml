@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+			
+<include name="detail_BigFanart">	
+		<control type="group">
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>	
+			<!--large grid-->
+			<control type="group">				
+				<visible>Control.IsVisible(596)</visible>
+				<control type="image">
+					<right>-10</right>
+					<top>55</top>
+					<width>1280</width>
+					<height>740</height>
+					<aspectratio scalediffuse="true">scale</aspectratio>	
+					<include>fadeinout</include>				
+				<fadetime>fadetime_Fanart</fadetime>
+					<texture diffuse="overlays/diffuseBigFanart.png" background="true" fallback="overlays/Fanart_Fallback-2.png">$VAR[thumb_Landscape]</texture>
+				 <visible>Control.IsVisible(596)</visible>
+				</control>
+			   						
+				<control type="multiimage">
+				<right>-10</right>
+					<top>43</top>
+					<width>1280</width>
+					<height>758</height>
+				<imagepath diffuse="overlays/diffuseBigFanart.png"  background="true"fallback="overlays/Fanart_Fallback-2.png">$VAR[extrafanart.path]</imagepath>
+					<aspectratio scalediffuse="true">scale</aspectratio>
+					<visible>!Container().Scrolling</visible>
+            <animation effect="fade" start="0" end="100" time="2500" delay="5000">Visible</animation>
+				<timeperimage>6000</timeperimage>
+                    <randomize>true</randomize>
+                    <fadetime>150</fadetime>
+					<pauseatend>50</pauseatend>
+                    <loop>yes</loop>               
+				<visible>Control.IsVisible(596) + Skin.HasSetting(gallery.extrafanart)</visible>
+				</control>
+		
+		<control type="image">
+					 <left>0</left>
+					<top>595</top>
+				     <width>1920</width>
+				     <height>150</height>
+				     <texture background="true">frames/stripfanart.png</texture>
+					 <colordiffuse>base_1</colordiffuse>
+					 <visible>Control.IsVisible(596)</visible>					 
+			      </control>
+				  
+		            <control type="label">
+						<label>$VAR[global_Title]</label>
+						<textcolor>Color13</textcolor>
+						<left>250</left>
+						<top>665</top>
+						<width>800</width>
+						<include>detail_Title</include>						
+					<visible>Container.Content(movies)</visible>					
+					<visible>Control.IsVisible(596)</visible>
+					</control>
+					<control type="image">
+						<width>90</width>
+					<left>30</left>
+					<top>675</top>
+					<include>detail_StarRating</include>
+					<aspectratio align="right" aligny="top">keep</aspectratio>
+					<visible>IntegerGreaterThan(ListItem.Rating,0)</visible>
+					<visible>Control.IsVisible(596)</visible>	
+				</control>
+					<control type="image">
+				    <top>673</top>
+				    <left>150</left>
+					<bottom>40</bottom>
+					<width>80</width>
+					<height>45</height>
+					<aspectratio align="left">keep</aspectratio>
+					<texture>$VAR[flag_Studio]</texture>
+					<visible>Control.IsVisible(596)</visible>
+				</control>				
+				<control type="label">
+				<left>250</left>
+					<top>690</top>
+					<width>960</width>
+							<label>$VAR[global_Info]</label>
+							<textcolor>Color12</textcolor>
+							<include>detail_Sub</include>							
+							<visible>![Container.Content(addons) | Container.Content(programs)]</visible>
+						</control>
+						<control type="label">
+						<left>250</left>
+					<top>690</top>
+							<width>960</width>
+							<label>$LOCALIZE[19114] $INFO[ListItem.Property(Addon.Version),, • ]$LOCALIZE[31144] $INFO[ListItem.Property(Addon.Creator)]</label>
+							<include>detail_Sub</include>
+							<textcolor>Color14</textcolor>
+							<visible>[Container.Content(addons) | Container.Content(programs)]</visible>
+						</control>
+						<control type="group">				
+					<top>680</top>
+					<left>1250</left>
+					<include>status_Info</include>
+					<visible>Control.IsVisible(596)</visible>
+					<visible>Skin.HasSetting(overlay_statu.disable)</visible>
+			</control>
+				<control type="group">
+					<top>678</top>
+					<left>1245</left>
+					<width>32</width>
+					<height>32</height>
+					<visible>Skin.HasSetting(watched.alternative)</visible>
+					<visible>Control.IsVisible(596)</visible>
+					<control type="image">
+						<info>ListItem.Overlay</info>
+					</control>
+				</control>
+				<!--info 1 big Fanart-->
+						
+				<control type="group">
+				<top>80</top>
+				<visible>Control.IsVisible(596)</visible>
+					<control type="image">
+					 <left>0</left>
+					<top>100</top>
+				     <width>1920</width>
+				     <height>350</height>
+				     <texture background="true">frames/strip.png</texture>
+					 <colordiffuse>accent_5</colordiffuse>
+					 </control>					 
+					<control type="textbox">
+					<top>120</top>
+					<left>350</left>
+					<width>530</width>
+					<align>justify</align>
+					<height max="248">auto</height>
+					<label>$VAR[global_Plot]</label>
+					<textcolor>ffffffff</textcolor>
+					<include>detail_Text</include>
+					<visible>Control.IsVisible(596)</visible>
+				</control>
+				 <control type="image">
+			    <top>400</top>
+				<left>350</left>
+				<width>96</width>
+				<height>34</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
+				<visible>!IsEmpty(Listitem.VideoResolution)</visible>
+			</control>	
+			<control type="image">
+				<top>400</top>
+				<left>480</left>
+				<width>96</width>
+				<height>34</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>$INFO[Listitem.AudioChannels,flags/audio/,.png]</texture>
+				<visible>!IsEmpty(Listitem.AudioChannels)</visible>
+				</control>
+				<control type="image">
+			        <top>400</top>
+			        <left>635</left>
+					<width>70</width>
+					<height>35</height>
+					<texture>$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoCodec)</visible>
+				</control>
+				<control type="image">
+				    <top>395</top>
+			        <left>795</left>
+					<width>70</width>
+					<height>45</height>
+					<texture>$INFO[Listitem.AudioCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.AudioCodec)</visible>
+				</control>
+				<control type="image">					
+					<top>120</top>
+			        <left>80</left>					
+				<width>220</width>
+				<height>310</height>
+				<texture background="true">thumbs/default_Portrait.png</texture>
+				<aspectratio>stretch</aspectratio>				
+			</control>			
+			<control type="image">					
+					<top>120</top>
+			        <left>80</left>					
+				<width>220</width>
+				<height>310</height>
+				<texture background="true">$VAR[thumb_Portrait]</texture>
+				<aspectratio>stretch</aspectratio>				
+			</control>			
+			<control type="image">
+				   <top>150</top>
+			        <left>900</left>
+					<width>320</width>
+					<height>160</height>
+				  <include>art_ClearLogo</include>
+				  </control>
+			 <visible>!Skin.HasSetting(bigfanartInfo1.enable)</visible>			 
+		</control>
+		<!--Fin info 1 big Fanart-->
+		
+		<!--info 2 big Fanart-->
+						
+				<control type="group">
+				<top>80</top>
+				<visible>Control.IsVisible(596)</visible>
+				  <control type="image">
+					 <left>0</left>
+					<top>100</top>
+				     <width>1920</width>
+				     <height>350</height>
+				     <texture background="true">frames/strip.png</texture>
+					 <colordiffuse>accent_5</colordiffuse>
+					 </control>	
+					<control type="textbox">
+					<top>120</top>
+					<left>350</left>
+					<width>480</width>
+					<align>justify</align>
+					<height max="248">auto</height>
+					<label>$VAR[global_Plot]</label>
+					<textcolor>ffffffff</textcolor>
+					<include>detail_Text</include>
+					<visible>Control.IsVisible(596)</visible>
+				</control>
+				 <control type="image">
+			    <top>400</top>
+				<left>350</left>
+				<width>96</width>
+				<height>34</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
+				<visible>!IsEmpty(Listitem.VideoResolution)</visible>
+			</control>	
+			<control type="image">
+				<top>400</top>
+				<left>480</left>
+				<width>96</width>
+				<height>34</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>$INFO[Listitem.AudioChannels,flags/audio/,.png]</texture>
+				<visible>!IsEmpty(Listitem.AudioChannels)</visible>
+				</control>
+				<control type="image">
+			        <top>400</top>
+			        <left>635</left>
+					<width>70</width>
+					<height>35</height>
+					<texture>$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoCodec)</visible>
+				</control>
+				<control type="image">
+				    <top>395</top>
+			        <left>795</left>
+					<width>70</width>
+					<height>45</height>
+					<texture>$INFO[Listitem.AudioCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.AudioCodec)</visible>
+				</control>
+				<control type="image">					
+					<top>120</top>
+			        <left>80</left>					
+				<width>220</width>
+				<height>310</height>
+				<texture background="true">thumbs/default_Portrait.png</texture>
+				<aspectratio>stretch</aspectratio>				
+			</control>			
+			<control type="image">					
+					<top>120</top>
+			        <left>80</left>					
+				<width>220</width>
+				<height>310</height>
+				<texture background="true">$VAR[thumb_Portrait]</texture>
+				<aspectratio>stretch</aspectratio>				
+			</control>			
+			<control type="image">
+				<left>855</left>
+				<top>132</top>
+				<width>380</width>
+				<height>230</height>
+				<texture background="true">$VAR[view_Extra.Thumb3]</texture>
+				<aspectratio>stretch</aspectratio>				
+			</control>
+			 <visible>Skin.HasSetting(bigfanartInfo2.enable)</visible>
+		</control>
+		<!--Fin info 2 big Fanart-->
+		
+		<!--info 3 big Fanart-->
+						
+				<control type="group">
+				<top>80</top>
+				<visible>Control.IsVisible(596)</visible>
+				  <control type="image">
+					 <left>0</left>
+					<top>100</top>
+				     <width>1920</width>
+				     <height>350</height>
+				     <texture background="true">frames/strip.png</texture>
+					 <colordiffuse>accent_5</colordiffuse>
+					 </control>	
+					<control type="textbox">
+					<top>120</top>
+					<left>900</left>
+					<width>340</width>
+					<align>justify</align>
+					<height max="248">auto</height>
+					<label>$VAR[global_Plot]</label>
+					<textcolor>ffffffff</textcolor>
+					<include>detail_Text</include>
+					<visible>Control.IsVisible(596)</visible>
+				</control>					
+			<control type="group">
+			<left>80</left>	
+			 <control type="image">
+			    <top>400</top>
+				<left>895</left>
+				<width>96</width>
+				<height>34</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
+				<visible>!IsEmpty(Listitem.VideoResolution)</visible>
+			</control>
+			<control type="image">
+				<top>400</top>
+				<left>795</left>
+				<width>96</width>
+				<height>34</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>$INFO[Listitem.AudioChannels,flags/audio/,.png]</texture>
+				<visible>!IsEmpty(Listitem.AudioChannels)</visible>
+				</control>
+				<control type="image">
+			        <top>400</top>
+			        <left>995</left>
+					<width>70</width>
+					<height>35</height>
+					<texture>$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoCodec)</visible>
+				</control>
+				<control type="image">
+				    <top>395</top>
+			        <left>1095</left>
+					<width>70</width>
+					<height>45</height>
+					<texture>$INFO[Listitem.AudioCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.AudioCodec)</visible>
+				</control>
+				</control>
+				<control type="image">					
+					<top>120</top>
+			        <left>80</left>					
+				<width>220</width>
+				<height>310</height>
+				<texture background="true">thumbs/default_Portrait.png</texture>
+				<aspectratio>stretch</aspectratio>				
+			</control>			
+			<control type="image">					
+					<top>120</top>
+			        <left>80</left>					
+				<width>220</width>
+				<height>310</height>
+				<texture background="true">$VAR[thumb_Portrait]</texture>
+				<aspectratio>stretch</aspectratio>				
+			</control>			
+			<control type="image">
+				<left>320</left>
+				<top>121</top>
+				<width>551</width>
+				<height>310</height>
+				<texture background="true">$VAR[view_Extra.Thumb3]</texture>
+				<aspectratio>stretch</aspectratio>				
+			</control>
+			 <visible>Skin.HasSetting(bigfanartInfo3.enable)</visible>
+		</control>
+		<!--Fin info 3 big Fanart-->
+		<!--info 4 big Fanart-->
+						
+				<control type="group">
+				<top>80</top>
+				<visible>Control.IsVisible(596)</visible>
+				  <control type="image">
+					 <left>0</left>
+					<top>100</top>
+				     <width>1920</width>
+				     <height>350</height>
+				     <texture background="true">frames/strip.png</texture>
+					 <colordiffuse>accent_4</colordiffuse>
+					 </control>
+					 <control type="textbox">
+					<top>120</top>
+					<left>200</left>
+					<width>900</width>
+					<align>justify</align>
+					<height max="80">auto</height>
+					<label>$VAR[global_Plot]</label>
+					<textcolor>ffffffff</textcolor>
+					<include>detail_Text</include>
+					<visible>Control.IsVisible(596)</visible>
+				</control>
+					 <control type="group">
+					 <left>150</left>
+					 <top>210</top>						
+			<control type="image">
+				<width>1000</width>
+				<height>185</height>
+				<texture background="true">$VAR[thumb_Banner]</texture>
+				<aspectratio align="center" aligny="center">scale</aspectratio>
+			</control>
+			</control>
+			<control type="group">
+			<left>-365</left>	
+			 <control type="image">
+			    <top>400</top>
+				<left>895</left>
+				<width>96</width>
+				<height>34</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
+				<visible>!IsEmpty(Listitem.VideoResolution)</visible>
+			</control>
+			<control type="image">
+				<top>400</top>
+				<left>795</left>
+				<width>96</width>
+				<height>34</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>$INFO[Listitem.AudioChannels,flags/audio/,.png]</texture>
+				<visible>!IsEmpty(Listitem.AudioChannels)</visible>
+				</control>
+				<control type="image">
+			        <top>400</top>
+			        <left>995</left>
+					<width>70</width>
+					<height>35</height>
+					<texture>$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoCodec)</visible>
+				</control>
+				<control type="image">
+				    <top>395</top>
+			        <left>1095</left>
+					<width>70</width>
+					<height>45</height>
+					<texture>$INFO[Listitem.AudioCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.AudioCodec)</visible>
+				</control>
+				</control>
+			 <visible>Skin.HasSetting(bigfanartInfo4.enable)</visible>
+		</control>
+		<!--Fin info 4 big Fanart-->
+		</control>
+		</control>
+	</include>
+
+<!--POSTER--> 
+	<include name="view_BigFanartPortrait-ContainerCommons">
+	
+	<visible>Control.IsVisible(596)</visible>	
+			<control type="group">	
+             <left>7</left>
+			<top>7</top>
+			<include></include>			
+			<control type="image">	
+				<width>70</width>
+				<height>100</height>
+				<texture background="true">thumbs/default_Portrait.png</texture>
+				<aspectratio>scale</aspectratio>
+			</control>			
+			<control type="image">
+				<width>70</width>
+				<height>100</height>
+				<texture background="true">$VAR[thumb_Portrait]</texture>
+				<aspectratio>scale</aspectratio>				
+			</control>
+		</control>
+	</include>	
+	<include name="view_BigFanartPortrait"> 
+	<visible>Control.IsVisible(596)</visible>
+		<control type="fixedlist" id="596">
+			<viewtype label="Poster & Fanart">Big</viewtype>           		
+            <left>80</left>
+            <top>550</top>
+            <width>1100</width>
+            <height>300</height>
+            <onup>6000</onup>
+			<ondown>71</ondown>
+			<onleft>596</onleft>
+			<onright>596</onright>
+			<focusposition>5</focusposition>
+			<pagecontrol>71</pagecontrol>
+			<orientation>horizontal</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets)</visible>
+			<itemlayout height="120" width="95">
+				<include>view_BigFanartPortrait-ContainerCommons</include>
+			</itemlayout>											
+			<focusedlayout height="120" width="95">
+			<control type="image">
+			<left>-0.5</left>
+			<top>0</top>
+			<width>85</width>
+			<height>110</height>
+			<include>art_Frame-fo</include>			
+				</control>			
+				<include>view_BigFanartPortrait-ContainerCommons</include>				
+			</focusedlayout>
+			
+		</control>
+	</include>	
+	
+	
+	
+</includes>
