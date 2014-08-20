@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <includes>		
 		<include name="home_Menu-vertical">
 		<!--WIDGETS-->
@@ -164,10 +164,10 @@
 			</animation>			
 			<left>50</left>			
 			<control type="image">			
-			<top>-50</top>
+			<top>-23</top>
 			<left>-150</left>
 					<width>1920</width>
-					<height>130</height>
+					<height>100</height>
 					<aspectratio>stretch</aspectratio>				
 					<texture colordiffuse="base_3">frames/panel2.png</texture>
 								<animation effect="fade" start="100" end="60" condition="Skin.HasSetting(opacitymenu.disable)">Conditional</animation>
@@ -183,7 +183,7 @@
 			<control type="group">
 				<include>transition_Home-horizontal</include>
 				<control type="fixedlist" id="9110">
-				<top>-7</top>
+				<top>5</top>
 					<width>1182</width>
 					<height>70</height>
 					<onleft>9110</onleft>
