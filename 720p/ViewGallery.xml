@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <includes>
 <!--STRIP LAYOUT-->	
 	<include name="view_Gallery">
@@ -879,11 +879,11 @@
 					<selectedcolor>Color13</selectedcolor>
 							</control>
 				<control type="label">
-					   <posx>75</posx>
+					   <posx>0</posx>
 						<posy>15</posy>
 						    <align>center</align>
 							<aligny>center</aligny>		
-					<width min="750" max="800">auto</width>
+					<width min="850" max="1050">auto</width>
 					<label>$INFO[ListItem.Tagline]</label>
 					<scroll>true</scroll>
 					<font>semibold-U</font>					
@@ -892,28 +892,13 @@
 						</control>
 				<control type="group">		
 				<control type="textbox">
-					   <posx>50</posx>
+					   <posx>13</posx>
 						<posy>38</posy>
-						<align>justify</align>
-						<width min="400" max="800">auto</width>
+						<width min="850" max="1000">auto</width>
+						<align >justify</align>
 						<height>78</height>
 					<label>$VAR[global_Plot]</label>
-					<font>condensed-U</font>
-					<textcolor>Color13</textcolor>
-					<selectedcolor>Color13</selectedcolor>
-					<autoscroll delay="5000" time="2000" repeat="10000">!Control.HasFocus(1)</autoscroll>					
-					<visible>!SubString(ListItem.Icon,default)</visible>					
-				</control>
-				<visible>Skin.HasSetting(galleryalt2.flag)</visible>
-				</control>
-				<control type="group">		
-				<control type="textbox">
-					   <posx>50</posx>
-						<posy>38</posy>
-						<align>justify</align>
-						<width>935</width>
-						<height>78</height>
-					<label>$VAR[global_Plot]</label>
+					<width min="850" max="1050">auto</width>
 					<font>condensed-U</font>
 					<textcolor>Color13</textcolor>
 					<selectedcolor>Color13</selectedcolor>
@@ -923,16 +908,16 @@
 				<visible>!Skin.HasSetting(galleryalt2.flag)</visible>
 				</control>
 			<control type="label">
-					   <posx>75</posx>
+					   <posx>0</posx>
 						<posy>127</posy>
 						    <align>center</align>
 							<aligny>center</aligny>>		
-					<width min="750" max="900">auto</width>
-					<label>$INFO[ListItem.Year]  |  $INFO[ListItem.Mpaa]  |  $INFO[ListItem.Duration]mins  |  Rating $INFO[ListItem.RatingAndVotes]</label>
+					<width min="850" max="1050">auto</width>
+					<label>$VAR[global_Info]</label>
 					<font>semibold-U</font>					
 					<textcolor>Color15</textcolor>
-					<selectedcolor>Color15</selectedcolor>	
-				</control>
+					<selectedcolor>Color15</selectedcolor>
+						</control>
 				<control type="image">
 				<left>-218</left>
 				<top>-150</top>
